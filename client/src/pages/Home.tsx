@@ -38,9 +38,6 @@ export default function Home() {
               Contact
             </a>
           </div>
-          <Button className="bg-accent hover:bg-accent/90 text-white">
-            Get Started
-          </Button>
         </div>
       </nav>
 
@@ -68,18 +65,6 @@ export default function Home() {
               Empower your operations with IoT, SCADA, and AI Vision solutions. Detect anomalies,
               recognize patterns, and optimize processes in real-time.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-accent hover:bg-accent/90 text-white px-10 py-6 text-lg shadow-lg">
-                Explore Solutions
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button
-                variant="outline"
-                className="border-white text-white hover:bg-white/10 px-10 py-6 text-lg"
-              >
-                Schedule Demo
-              </Button>
-            </div>
           </div>
         </div>
 
@@ -179,7 +164,7 @@ export default function Home() {
             </div>
 
             {/* SCADA Solution */}
-            <div className="group bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-border hover:border-accent/50 md:translate-y-4">
+            <div className="group bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-border hover:border-accent/50">
               <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
                 <Cpu className="w-7 h-7 text-primary group-hover:text-accent transition-colors" />
               </div>
@@ -421,184 +406,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI Services Highlight */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-accent/5 to-accent/10">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">
-              Advanced AI Services
-            </h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-              Comprehensive AI Vision solutions tailored for industrial automation and quality control
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-8 border border-accent/20 hover:border-accent/50 transition-colors">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                <Eye className="w-6 h-6 text-accent" />
-              </div>
-              <h3 className="font-display text-xl font-bold text-primary mb-3">Defect Detection</h3>
-              <p className="text-foreground/70 mb-4">Identify surface cracks, scratches, and anomalies in real-time manufacturing processes with high precision.</p>
-              <p className="text-sm text-accent font-semibold">→ Reduce quality issues by up to 95%</p>
-            </div>
-            <div className="bg-white rounded-xl p-8 border border-accent/20 hover:border-accent/50 transition-colors">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                <Radio className="w-6 h-6 text-accent" />
-              </div>
-              <h3 className="font-display text-xl font-bold text-primary mb-3">Face Recognition</h3>
-              <p className="text-foreground/70 mb-4">Secure access control and identity verification with advanced facial recognition technology.</p>
-              <p className="text-sm text-accent font-semibold">→ 99.9% accuracy rate</p>
-            </div>
-            <div className="bg-white rounded-xl p-8 border border-accent/20 hover:border-accent/50 transition-colors">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                <Cpu className="w-6 h-6 text-accent" />
-              </div>
-              <h3 className="font-display text-xl font-bold text-primary mb-3">License Plate Recognition</h3>
-              <p className="text-foreground/70 mb-4">Automated vehicle identification and parking management with real-time OCR processing.</p>
-              <p className="text-sm text-accent font-semibold">→ Process 100+ vehicles/minute</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies - Real Projects Section */}
-      <section id="case-studies" className="py-20 md:py-32 bg-gradient-to-b from-background to-primary/5">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-primary mb-4">
-              ตัวอย่างผลงาน
-            </h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-              โซลูชัน AI และ IoT ที่พัฒนาสำหรับลูกค้าในภาคอุตสาหกรรม
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Case Study 1: AI สำหรับโรงงานอัจฉริยะ */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-border hover:border-accent/50 transition-all hover:shadow-xl group">
-              <div className="relative overflow-hidden">
-                <img
-                  src="/images/ai-smart-factory.webp"
-                  alt="AI สำหรับโรงงานอัจฉริยะ"
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-medium">
-                  AI + IoT/SCADA
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-xl font-bold text-primary mb-3">
-                  ระบบ AI สำหรับโรงงานอัจฉริยะ
-                </h3>
-                <p className="text-foreground/70 mb-4 text-sm leading-relaxed">
-                  พัฒนาทั้ง Solution หรือเฉพาะงานเทรน Model AI คุณภาพสูงที่สามารถตอบโจทย์เฉพาะของลูกค้าได้
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Object Detection</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Counting</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Gauge Reading</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Defect Inspection</span>
-                </div>
-                <div className="text-accent font-semibold text-sm">
-                  ราคาเริ่มต้น 30,000 บาท
-                </div>
-              </div>
-            </div>
-
-            {/* Case Study 2: AI สำหรับงานตรวจจับ */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-border hover:border-accent/50 transition-all hover:shadow-xl group">
-              <div className="relative overflow-hidden">
-                <img
-                  src="/images/ai-vision-detection.webp"
-                  alt="AI สำหรับงานตรวจจับ"
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-medium">
-                  Vision AI
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-xl font-bold text-primary mb-3">
-                  AI สำหรับงานตรวจจับ
-                </h3>
-                <p className="text-foreground/70 mb-4 text-sm leading-relaxed">
-                  พัฒนาระบบ AI สำหรับงานตรวจจับเพื่อ Integrate เข้ากับระบบควบคุมต่างๆ ทั้งระบบหรือเฉพาะเทรน Model AI
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Industrial Object Detection</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Worker Safety</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Face Identity</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">PPE Detection</span>
-                </div>
-                <div className="text-accent font-semibold text-sm">
-                  Emergency Machine Stop & Real-time Monitoring
-                </div>
-              </div>
-            </div>
-
-            {/* Case Study 3: AI อ่านค่ามิเตอร์ */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-border hover:border-accent/50 transition-all hover:shadow-xl group">
-              <div className="relative overflow-hidden">
-                <img
-                  src="/images/ai-meter-reading-full-correct.png"
-                  alt="AI อ่านค่ามิเตอร์แบบเข็ม"
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-medium">
-                  AI Gauge Reading
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-xl font-bold text-primary mb-3">
-                  AI อ่านค่ามิเตอร์แบบเข็ม
-                </h3>
-                <p className="text-foreground/70 mb-4 text-sm leading-relaxed">
-                  ระบบ AI ตรวจจับตำแหน่งเข็ม จุดหมุน Min/Max ของ Gauge พร้อมคำนวณ Value และ Calibration อัตโนมัติ
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Analog Gauge</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Auto Calibration</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Multi-Gauge Support</span>
-                </div>
-                <div className="text-accent font-semibold text-sm">
-                  รองรับ Gauge หลายแบบ พร้อมระบบ Calibration
-                </div>
-              </div>
-            </div>
-
-            {/* Case Study 4: Notibox State Machine */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg border border-border hover:border-accent/50 transition-all hover:shadow-xl group">
-              <div className="relative overflow-hidden">
-                <img
-                  src="/images/notibox-state-machine-correct.png"
-                  alt="Notibox State Machine"
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute top-4 left-4 bg-accent text-white px-3 py-1 rounded-full text-sm font-medium">
-                  Notibox Platform
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="font-display text-xl font-bold text-primary mb-3">
-                  Notibox : State Machine
-                </h3>
-                <p className="text-foreground/70 mb-4 text-sm leading-relaxed">
-                  Platform ที่ประกอบไปด้วย User Authentication, Log Management, SMS Controller, Notification Filters และ State Machine Logic Controller
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">State Machine</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Alarm & Notification</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">Line Noti</span>
-                  <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs">SMS</span>
-                </div>
-                <div className="text-accent font-semibold text-sm">
-                  รับวิเคราะห์ ออกแบบระบบ พัฒนา HMI & Dashboard
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Benefits Section */}
       <section className="py-20 md:py-32 bg-primary/5">
@@ -655,16 +462,42 @@ export default function Home() {
             <p className="text-lg text-white/90 mb-8">
               Get in touch with our team to discuss how Leaftech can help your business thrive
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-primary hover:bg-white/90 px-8 py-6 text-base font-semibold">
-                Schedule a Demo
-              </Button>
-              <Button
-                variant="outline"
-                className="border-white text-white hover:bg-white/10 px-8 py-6 text-base font-semibold"
-              >
-                Contact Sales
-              </Button>
+            <div className="space-y-6">
+              <div className="flex flex-col items-center gap-4">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-2">ติดต่อเรา</h3>
+                  <p className="text-xl font-semibold mb-4">บริษัท ลีฟเทค จำกัด</p>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6 w-full max-w-2xl">
+                  <a href="tel:0990515359" className="flex items-center gap-3 bg-white/10 hover:bg-white/20 transition-colors px-6 py-4 rounded-lg">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <div className="text-left">
+                      <div className="text-sm text-white/70">โทรศัพท์</div>
+                      <div className="text-lg font-semibold">0990515359</div>
+                    </div>
+                  </a>
+                  <a href="mailto:tharayuth@leaftech.co.th" className="flex items-center gap-3 bg-white/10 hover:bg-white/20 transition-colors px-6 py-4 rounded-lg">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <div className="text-left">
+                      <div className="text-sm text-white/70">อีเมล</div>
+                      <div className="text-lg font-semibold">tharayuth@leaftech.co.th</div>
+                    </div>
+                  </a>
+                  <a href="https://facebook.com/notiboxaiot" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white/10 hover:bg-white/20 transition-colors px-6 py-4 rounded-lg md:col-span-2">
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                    <div className="text-left">
+                      <div className="text-sm text-white/70">Facebook</div>
+                      <div className="text-lg font-semibold">facebook.com/notiboxaiot</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
