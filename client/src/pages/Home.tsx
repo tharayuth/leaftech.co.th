@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Eye, Cpu, Radio, BarChart3, Shield } from "lucide-react";
+import { ArrowRight, Zap, Eye, Cpu, Radio, BarChart3, Shield, MessageSquare } from "lucide-react";
 import { useEffect, useState } from "react";
 
 /**
@@ -151,7 +151,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* IoT Solution */}
             <div className="group bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-border hover:border-accent/50">
               <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-colors">
@@ -230,6 +230,35 @@ export default function Home() {
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
                   Custom Deep Learning Models
+                </li>
+              </ul>
+            </div>
+
+            {/* AI Data Chat Solution */}
+            <div className="group bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-border hover:border-accent/50">
+              <div className="w-14 h-14 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+                <MessageSquare className="w-7 h-7 text-accent group-hover:text-accent transition-colors" />
+              </div>
+              <h3 className="font-display text-2xl font-bold text-primary mb-3">AI Data Chat</h3>
+              <p className="text-foreground/70 mb-6">
+                Intelligent chat interface for analyzing IoT data through natural language. Ask questions, get insights, and generate automated reports with visualizations.
+              </p>
+              <ul className="space-y-2 text-sm text-foreground/60">
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                  Natural Language Analytics
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                  Automated Report Generation
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                  Visual Data Insights
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-accent rounded-full"></span>
+                  Trend Analysis & Comparison
                 </li>
               </ul>
             </div>
