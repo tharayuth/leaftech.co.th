@@ -3,6 +3,17 @@
 export const DEMO_URL =
   "https://notibox-dc2.appboox.com/p/DM0Hl71_kmmsPuAUgvclM4JfWKn97m-p3HmFzG-Da8Y/b/f3e42f25-008d-4fbb-a30f-3d2db205ec0f";
 export const DEMO_HOST = "notibox-dc2.appboox.com";
+
+/** Public (view-only) share links of the hosted Notibox v3 demos, per industry card. Cold storage has no hosted demo yet. */
+export const INDUSTRY_DEMO: Partial<Record<"datacenter" | "building" | "coldstore" | "flood" | "factory", string>> = {
+  datacenter: DEMO_URL,
+  building:
+    "https://notibox-e.appboox.com/p/AuJPwMmWpU8MUVlQx2BWh6IGu_7v4kMJJtSYdPGMjYU/b/86d4d588-8617-431b-8181-a169ef97c3a2",
+  flood:
+    "https://flood2026.appboox.com/p/eg-eMw0rEsrP18OvfX5OGQDQMbUEq76mGkXEb4jEZWE/b/1695cfa0-27c0-4988-9634-c0b3b09b5a53",
+  factory:
+    "https://notibox-by.appboox.com/p/gw7wopTL_ki2reXbW7_ITkgoS0IzSqb5mLiceCMQBLI/b/62ab742b-1d39-4c39-a345-982341aa31d6",
+};
 export const APPBOOX_URL = "https://www.appboox.com";
 
 export const CONTACT = {

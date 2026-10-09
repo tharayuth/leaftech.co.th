@@ -3,7 +3,7 @@ import { Phrases } from "@/components/Phrases";
 import { SectionHeader } from "@/components/SectionHeader";
 import { INDUSTRY_IDS, type IndustryId } from "@/content/types";
 import { useLang } from "@/i18n/LangProvider";
-import { DEMO_URL } from "@/lib/site";
+import { INDUSTRY_DEMO } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import {
   ArrowUpRight,
@@ -47,7 +47,8 @@ export function Industries() {
           {INDUSTRY_IDS.map((id, i) => {
             const { img, icon: Icon, span } = META[id];
             const item = ind.items[id];
-            const isDemo = id === "datacenter";
+            const demoUrl = INDUSTRY_DEMO[id];
+            const isDemo = Boolean(demoUrl);
             const body = (
               <>
                 <img
@@ -99,7 +100,7 @@ export function Industries() {
               <Reveal as="li" key={id} delay={(i % 3) * 0.07} className={span}>
                 {isDemo ? (
                   <a
-                    href={DEMO_URL}
+                    href={demoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cls}
