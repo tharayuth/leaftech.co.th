@@ -1,20 +1,14 @@
-import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import fs from "node:fs";
-import path from "path";
-import { defineConfig } from "vite";
-import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
+import path from "node:path";
+import { defineConfig } from "vitest/config";
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
-
+// Static single-page site: `npm run build` → dist/public, served by nginx from www/ (`npm run deploy`).
 export default defineConfig({
-  plugins,
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
   envDir: path.resolve(import.meta.dirname),
@@ -25,7 +19,7 @@ export default defineConfig({
   },
   server: {
     port: 3456,
-    strictPort: false, // Will find next available port if 3456 is busy
+    strictPort: false,
     host: true,
     allowedHosts: [
       "leaftech.co.th",
@@ -37,5 +31,8 @@ export default defineConfig({
       strict: true,
       deny: ["**/.*"],
     },
+  },
+  test: {
+    environment: "node",
   },
 });

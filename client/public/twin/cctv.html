@@ -1,0 +1,496 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Notibox v3 · cctv</title><style>:root{--nb-background:#070d1a;--nb-foreground:#e8eef7;--nb-muted:#111a2e;--nb-muted-foreground:#8a98b3;--nb-border:#ffffff1a;--nb-primary:#22c55e;}html,body{background:transparent;margin:0;height:100%}</style><script>
+(() => {
+  const FRAMES = [{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.6,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.7,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.8,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.6,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.7,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.8,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.6,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.7,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.8,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.6,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.7,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.8,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.6,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":0,"status":"CLEAR","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":0,"status":"CLEAR","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":0,"status":"CLEAR","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":0,"status":"CLEAR","unit":""},"door":{"value":0,"status":"CLOSED","unit":""},"fire":{"value":0,"status":"NORMAL","unit":""},"ups_batt":{"value":0,"status":"ON UTILITY","unit":""},"leak1":{"value":0,"status":"DRY","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":0,"status":"DRY","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":22.7,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":22.9,"status":"NORMAL","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":1,"status":"MOTION","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":1,"status":"MOTION","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":1,"status":"MOTION","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":1,"status":"MOTION","unit":""},"door":{"value":1,"status":"OPEN","unit":""},"fire":{"value":1,"status":"WARNING","unit":""},"ups_batt":{"value":1,"status":"ON BATTERY","unit":""},"leak1":{"value":1,"status":"LEAK","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":1,"status":"LEAK","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"FAULT","status":"FAULT","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":25.8,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":31.4,"status":"HIGH","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":1,"status":"MOTION","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":1,"status":"MOTION","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":1,"status":"MOTION","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":1,"status":"MOTION","unit":""},"door":{"value":1,"status":"OPEN","unit":""},"fire":{"value":1,"status":"WARNING","unit":""},"ups_batt":{"value":1,"status":"ON BATTERY","unit":""},"leak1":{"value":1,"status":"LEAK","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":1,"status":"LEAK","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"FAULT","status":"FAULT","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":25.9,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":31.4,"status":"HIGH","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":1,"status":"MOTION","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":1,"status":"MOTION","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":1,"status":"MOTION","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":1,"status":"MOTION","unit":""},"door":{"value":1,"status":"OPEN","unit":""},"fire":{"value":1,"status":"WARNING","unit":""},"ups_batt":{"value":1,"status":"ON BATTERY","unit":""},"leak1":{"value":1,"status":"LEAK","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":1,"status":"LEAK","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"FAULT","status":"FAULT","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":26.0,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":31.4,"status":"HIGH","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":1,"status":"MOTION","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":1,"status":"MOTION","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":1,"status":"MOTION","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":1,"status":"MOTION","unit":""},"door":{"value":1,"status":"OPEN","unit":""},"fire":{"value":1,"status":"WARNING","unit":""},"ups_batt":{"value":1,"status":"ON BATTERY","unit":""},"leak1":{"value":1,"status":"LEAK","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":1,"status":"LEAK","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"FAULT","status":"FAULT","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":25.8,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":31.4,"status":"HIGH","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":1,"status":"MOTION","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":1,"status":"MOTION","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":1,"status":"MOTION","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":1,"status":"MOTION","unit":""},"door":{"value":1,"status":"OPEN","unit":""},"fire":{"value":1,"status":"WARNING","unit":""},"ups_batt":{"value":1,"status":"ON BATTERY","unit":""},"leak1":{"value":1,"status":"LEAK","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":1,"status":"LEAK","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"FAULT","status":"FAULT","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":25.9,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":31.4,"status":"HIGH","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":1,"status":"MOTION","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":1,"status":"MOTION","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":1,"status":"MOTION","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":1,"status":"MOTION","unit":""},"door":{"value":1,"status":"OPEN","unit":""},"fire":{"value":1,"status":"WARNING","unit":""},"ups_batt":{"value":1,"status":"ON BATTERY","unit":""},"leak1":{"value":1,"status":"LEAK","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":1,"status":"LEAK","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"FAULT","status":"FAULT","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":26.0,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":31.4,"status":"HIGH","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":1,"status":"MOTION","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":1,"status":"MOTION","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":1,"status":"MOTION","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":1,"status":"MOTION","unit":""},"door":{"value":1,"status":"OPEN","unit":""},"fire":{"value":1,"status":"WARNING","unit":""},"ups_batt":{"value":1,"status":"ON BATTERY","unit":""},"leak1":{"value":1,"status":"LEAK","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":1,"status":"LEAK","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"FAULT","status":"FAULT","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":25.8,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":31.4,"status":"HIGH","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":1,"status":"MOTION","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":1,"status":"MOTION","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":1,"status":"MOTION","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":1,"status":"MOTION","unit":""},"door":{"value":1,"status":"OPEN","unit":""},"fire":{"value":1,"status":"WARNING","unit":""},"ups_batt":{"value":1,"status":"ON BATTERY","unit":""},"leak1":{"value":1,"status":"LEAK","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":1,"status":"LEAK","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"FAULT","status":"FAULT","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":25.9,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":31.4,"status":"HIGH","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":1,"status":"MOTION","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":1,"status":"MOTION","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":1,"status":"MOTION","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":1,"status":"MOTION","unit":""},"door":{"value":1,"status":"OPEN","unit":""},"fire":{"value":1,"status":"WARNING","unit":""},"ups_batt":{"value":1,"status":"ON BATTERY","unit":""},"leak1":{"value":1,"status":"LEAK","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":1,"status":"LEAK","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"FAULT","status":"FAULT","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":26.0,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":31.4,"status":"HIGH","unit":"\u00b0C"}},{"cam1_on":{"value":1,"status":"REC","unit":""},"cam1_mot":{"value":1,"status":"MOTION","unit":""},"cam2_on":{"value":1,"status":"REC","unit":""},"cam2_mot":{"value":1,"status":"MOTION","unit":""},"cam3_on":{"value":1,"status":"REC","unit":""},"cam3_mot":{"value":1,"status":"MOTION","unit":""},"cam4_on":{"value":1,"status":"REC","unit":""},"cam4_mot":{"value":1,"status":"MOTION","unit":""},"door":{"value":1,"status":"OPEN","unit":""},"fire":{"value":1,"status":"WARNING","unit":""},"ups_batt":{"value":1,"status":"ON BATTERY","unit":""},"leak1":{"value":1,"status":"LEAK","unit":""},"leak2":{"value":0,"status":"DRY","unit":""},"leak3":{"value":1,"status":"LEAK","unit":""},"leak4":{"value":0,"status":"DRY","unit":""},"leak5":{"value":0,"status":"DRY","unit":""},"leak6":{"value":0,"status":"DRY","unit":""},"crac1_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac2_state":{"value":"RUNNING","status":"RUNNING","unit":""},"crac3_state":{"value":"FAULT","status":"FAULT","unit":""},"crac4_state":{"value":"STANDBY","status":"STANDBY","unit":""},"hall_t":{"value":25.8,"status":"NORMAL","unit":"\u00b0C"},"r_B3_t":{"value":31.4,"status":"HIGH","unit":"\u00b0C"}}], DEMO = "https://notibox-dc2.appboox.com/p/DM0Hl71_kmmsPuAUgvclM4JfWKn97m-p3HmFzG-Da8Y/b/f3e42f25-008d-4fbb-a30f-3d2db205ec0f"; let i = 0, cur = FRAMES[0] || {};
+  const listeners = [], declared = Object.freeze(Object.keys(cur));
+  window.notibox = Object.freeze({
+    get points() { return declared }, get values() { return {} }, get rule() { return {} },
+    point(key) { return Object.freeze({ key, get value() { return cur[key] ? cur[key].value : null }, get status() { return cur[key] ? cur[key].status : null },
+      get unit() { return cur[key] ? cur[key].unit : null }, get ts() { return Date.now() }, on() { return () => {} }, write() { return Promise.resolve() } }) },
+    onUpdate(fn) { listeners.push(fn); setTimeout(() => fn({}, {}), 0) },
+    openBoard() { window.open(DEMO, '_blank', 'noopener') },
+    send() { return Promise.resolve() }, signal() {}, onSignal() { return () => {} },
+  });
+  setInterval(() => { i = (i + 1) % FRAMES.length; cur = FRAMES[i]; for (const fn of listeners) fn({}, {}) }, 1000);
+  // let the wheel scroll the website instead of zooming the 3D scene
+  addEventListener('wheel', (e) => e.stopPropagation(), { capture: true });
+})();
+</script></head><body><style>
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden}
+body{font:13px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--nb-foreground);-webkit-font-smoothing:antialiased;position:relative}
+:root{--critf:#ef4444;--warnf:#f59e0b;--infof:#3b82f6;--okf:#22c55e;--idlef:#94a3b8;--stalef:#7b8494;
+--crit:#f87171;--warn:#fbbf24;--info:#60a5fa;--ok:#4ade80;--idle:#94a3b8;
+--fg:var(--nb-foreground);--mut:var(--nb-muted-foreground);--bd:var(--nb-border);--panel:var(--nb-muted);--bg:var(--nb-background);
+--glass:color-mix(in srgb,var(--nb-background) 92%,transparent);--soft:color-mix(in srgb,var(--nb-foreground) 6%,transparent);
+--line:color-mix(in srgb,var(--nb-foreground) 14%,transparent)}
+:root[data-theme=light]{--crit:#dc2626;--warn:#b45309;--info:#2563eb;--ok:#15803d;--idle:#64748b;--critf:#ef4444;--warnf:#f59e0b}
+.lv-critical{--c:var(--critf);--t:var(--crit)}
+.lv-warning{--c:var(--warnf);--t:var(--warn)}
+.lv-info{--c:var(--infof);--t:var(--info)}
+.lv-ok{--c:var(--okf);--t:var(--ok)}
+.lv-idle,.lv-none{--c:var(--idlef);--t:var(--mut)}
+.lv-stale{--c:var(--stalef);--t:var(--mut)}
+button{font:inherit;color:inherit;cursor:pointer}
+.mut{color:var(--mut)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
+.num{font-variant-numeric:tabular-nums}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.03em;white-space:nowrap;
+color:var(--t);background:color-mix(in srgb,var(--c) 15%,transparent);border:1px solid color-mix(in srgb,var(--c) 42%,transparent)}
+.chip.stale{border-style:dashed}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+.lv-critical .dot.glow,.dot.glow.lv-critical{box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 28%,transparent);animation:nbpulse 1.1s ease-in-out infinite}
+.lv-ok .dot.glow{box-shadow:0 0 6px color-mix(in srgb,var(--c) 70%,transparent)}
+@keyframes nbpulse{50%{box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 6%,transparent);opacity:.65}}
+@keyframes nbflash{0%{background:color-mix(in srgb,var(--c) 38%,transparent)}100%{background:transparent}}
+.seg{display:inline-flex;border:1px solid var(--bd);border-radius:8px;overflow:hidden;background:var(--glass)}
+.seg button{border:0;background:transparent;padding:4px 12px;font-size:12px;font-weight:600;color:var(--mut)}
+.seg button.on{background:color-mix(in srgb,var(--nb-foreground) 12%,transparent);color:var(--fg)}
+.seg button:hover:not(.on){color:var(--fg)}
+.panel{background:var(--glass);border:1px solid var(--bd);border-radius:10px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+html,body{margin:0;height:100%;overflow:hidden;background:#000}
+#v{position:absolute;inset:0;background:#000;overflow:hidden;border-radius:6px}
+#osd{position:absolute;inset:0;pointer-events:none;font:600 max(10px,1.75vw)/1.25 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#f1f5f0;
+text-shadow:0 0 2px #000,1px 1px 0 #000;letter-spacing:.03em}
+#tl{position:absolute;left:2.2%;top:3.5%}
+#tl span{display:block;font-weight:500;opacity:.92}
+#rec{position:absolute;right:2.4%;top:3.5%;display:flex;align-items:center;gap:.4em}
+#rec i{width:.72em;height:.72em;border-radius:50%;background:#ff2b2b;box-shadow:0 0 6px #ff2b2b;animation:rb 1s steps(2,start) infinite}
+@keyframes rb{50%{opacity:0}}
+#bl{position:absolute;left:2.2%;bottom:4%;display:flex;flex-wrap:wrap;gap:.35em;max-width:75%}
+#bl b{font-size:.78em;padding:.1em .45em;border:1px solid var(--c);color:#fff;background:color-mix(in srgb,var(--c) 45%,#0008);text-shadow:none}
+#br{position:absolute;right:2.4%;bottom:4%;font-size:.78em;opacity:.85}
+#mot{position:absolute;right:2.4%;top:11%;font-size:.85em;padding:.1em .5em;border:2px solid #f59e0b;color:#fde68a;background:#0006;display:none;animation:rb .8s steps(2,start) infinite}
+#box{position:absolute;border:2px solid #39ff6a;box-shadow:0 0 3px #000;display:none}
+#box s{position:absolute;left:-2px;top:-1.35em;font-size:.62em;text-decoration:none;background:#39ff6acc;color:#031;padding:0 .3em;text-shadow:none;white-space:nowrap}
+#v.rk #osd{font-size:clamp(10px,2.9vw,15px)}
+#v.rk #bl{max-width:96%}
+#v.rk #bl b{font-size:.8em}
+#ns{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:2em;padding:.2em .7em;background:#000c;border:2px solid #fff;display:none;letter-spacing:.12em}
+</style>
+<div id="v"><div id="osd"><div id="tl"><b id="nm"></b><span id="clk"></span></div><div id="rec"><i></i>REC</div>
+<div id="mot">MOTION</div><div id="box"><s>PERSON 0.9</s></div><div id="ns">NO SIGNAL</div><div id="bl"></div><div id="br"></div></div></div>
+<script src="/vendor/three-0.186.1.min.js"></script>
+<script>
+const CFG = {"cam":3,"name":"CAM-3 · Rows A–B","scene":"rows","severity":{"critical":["ABOVE N+1","ALARM","BATTERY LOW","BUILDING OUTAGE","CRITICAL","DEPLETED","DOWN","FAILED","FIRE CONFIRMED","LEAK","NO INPUT","NO MODULE","ON BATTERY","POOR","REDUNDANCY LOST","REPLACE","SMOKE","SMOKE - VERIFY CCTV"],"warning":["ABORTED","ABOVE PLAN","ACTIVE ALARMS","AT RISK","BYPASS","DEGRADED","ERRORS","FAIR","HEAT","HIGH","LOCAL POWER FAULT","NEAR N+1","ONE MODULE","OPEN","SLOW","STOPPED","WARNING"],"info":["INFO","MAINTENANCE","TESTING","TOO COLD"]}};
+const LEVELS = {"ALARM":"critical","WARNING":"warning","NORMAL":"ok","NO INPUT":"critical","ON BATTERY":"critical","BYPASS":"warning","ONLINE":"ok","UNKNOWN":"idle","DEPLETED":"critical","BATTERY LOW":"critical","ACTIVE ALARMS":"warning","CLEAR":"ok","FAILED":"critical","TESTING":"info","PASSED":"ok","ABORTED":"warning","NOT TESTED":"idle","TOO COLD":"info","SMOKE":"critical","OPEN":"warning","CLOSED":"idle","RUNNING":"ok","STOPPED":"warning","LEAK":"critical","DRY":"ok","DOWN":"critical","UP":"ok","HIGH":"warning","SLOW":"warning","ERRORS":"warning","NONE":"ok","BUILDING OUTAGE":"critical","LOCAL POWER FAULT":"warning","MAINS NORMAL":"ok","ABOVE PLAN":"warning","CRITICAL":"critical","INFO":"info","POOR":"critical","FAIR":"warning","GOOD":"ok","NO MODULE":"critical","ONE MODULE":"warning","BOTH ONLINE":"ok","ABOVE N+1":"critical","NEAR N+1":"warning","WITHIN N+1":"ok","REDUNDANCY LOST":"critical","AT RISK":"warning","N+1 OK":"ok","FIRE CONFIRMED":"critical","SMOKE - VERIFY CCTV":"critical","HEAT":"warning","REPLACE":"critical","DEGRADED":"warning","MAINTENANCE":"info","IN SERVICE":"ok"};
+if (CFG.severity) for (const lv of ['info', 'warning', 'critical']) for (const t of (CFG.severity[lv] || [])) LEVELS[t] = lv;
+const RANK = { critical: 5, warning: 4, stale: 3, info: 2, ok: 1, idle: 0, none: 0 };
+const NS = 'http://www.w3.org/2000/svg';
+const $ = (s, r) => (r || document).querySelector(s);
+const h = (tag, cls, text, parent) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; if (parent) parent.append(e); return e; };
+const sv = (tag, attrs, parent, text) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; if (parent) parent.append(e); return e; };
+const setText = (e, t) => { t = String(t); if (e.textContent !== t) e.textContent = t; };
+const setLv = (e, lv) => { if (e._lv !== lv) { if (e._lv) e.classList.remove('lv-' + e._lv); e.classList.add('lv-' + lv); e._lv = lv; } };
+const fmt = (n, d) => (n == null || !isFinite(n)) ? '\u2013' : Number(n).toFixed(d == null ? 0 : d);
+const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, t) => a + (b - a) * t;
+const ago = (ms) => { const s = Math.max(0, Math.round(ms / 1000)); return s < 60 ? s + ' s' : s < 3600 ? Math.floor(s / 60) + ' min' : Math.floor(s / 3600) + ' h ' + Math.floor(s % 3600 / 60) + ' min'; };
+const worst = (a) => a.reduce((w, l) => (RANK[l] > RANK[w] ? l : w), 'none');
+const THEME = (() => {
+const cs = getComputedStyle(document.documentElement);
+const g = document.createElement('canvas').getContext('2d', { willReadFrequently: true });
+const rgb = (name, fb) => { const v = cs.getPropertyValue(name).trim(); if (!v) return fb; g.canvas.width = g.canvas.height = 1; g.clearRect(0, 0, 1, 1); g.fillStyle = '#000'; g.fillStyle = v; g.fillRect(0, 0, 1, 1); const d = g.getImageData(0, 0, 1, 1).data; return [d[0], d[1], d[2]]; };
+const bg = rgb('--nb-background', [13, 20, 33]), fg = rgb('--nb-foreground', [226, 232, 240]), muted = rgb('--nb-muted', [30, 41, 59]);
+const dark = (0.2126 * bg[0] + 0.7152 * bg[1] + 0.0722 * bg[2]) / 255 < 0.5;
+document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+const hex = (c) => (c[0] << 16) | (c[1] << 8) | c[2];
+return { dark, bg, fg, muted, hex };
+})();
+const levelOf = (status, key) => {
+if (status == null || status === '') return 'none';
+if (status === 'timeout') return 'stale';
+const o = CFG.level_overrides && CFG.level_overrides[key];
+if (o && o[status]) return o[status];
+return LEVELS[status] || 'idle';
+};
+const DECL = new Set(notibox.points);
+const NONE = Object.freeze({ key: '', v: null, n: null, s: null, u: '', ts: null, stale: false, lv: 'none', has: false });
+const warned = new Set();
+function P(key) {
+if (!key) return NONE;
+if (!DECL.has(key)) { if (!warned.has(key)) { warned.add(key); console.warn('point key not declared on this widget: ' + key); } return NONE; }
+const p = notibox.point(key), v = p.value, s = p.status;
+const n = typeof v === 'number' ? v : (typeof v === 'string' && v.trim() !== '' && isFinite(+v) ? +v : null);
+return { key, v, n, s, u: p.unit || '', ts: p.ts, stale: s === 'timeout', lv: levelOf(s, key), has: v !== null || s !== null };
+}
+const subs = [], ticks = [];
+const onData = (fn) => { subs.push(fn); };
+const onTick = (fn) => { ticks.push(fn); };
+const runSubs = () => { for (const fn of subs) { try { fn(); } catch (e) { console.error(e); } } };
+let pend = 0;
+notibox.onUpdate(() => { if (!pend) pend = setTimeout(() => { pend = 0; runSubs(); }, 120); });
+setTimeout(runSubs, 0);
+setInterval(() => { for (const fn of ticks) { try { fn(); } catch (e) { console.error(e); } } }, 1000);
+const go = (board) => { if (board) notibox.openBoard(board); };
+const COL = { critical: 0xef4444, warning: 0xf59e0b, info: 0x3b82f6, ok: 0x22c55e, idle: 0x94a3b8, stale: 0x6b7280, none: 0x64748b };
+const CSSCOL = { critical: '#ef4444', warning: '#f59e0b', info: '#3b82f6', ok: '#22c55e', idle: '#94a3b8', stale: '#7b8494', none: '#94a3b8' };
+const T = window.THREE;
+function gl(stage) {
+if (!T) return null;
+try {
+const r = new T.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+r.setPixelRatio(Math.min(1.5, window.devicePixelRatio || 1));
+r.setClearColor(0x000000, 0);
+const c = r.domElement;
+c.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;outline:0';
+stage.prepend(c);
+return r;
+} catch (e) { console.warn('WebGL unavailable', e); return null; }
+}
+function orbit(stage, cam, o) {
+const tgt = new T.Vector3(o.target[0], o.target[1], o.target[2]);
+const st = { az: o.az, el: o.el, d: o.d }, tg = { az: o.az, el: o.el, d: o.d };
+const ptr = new Map();
+let moved = 0, idleAt = -1e9, pinch = 0, dir = 1;
+const wake = () => { idleAt = performance.now(); };
+stage.addEventListener('pointerdown', (e) => {
+if (e.target.closest && e.target.closest('[data-ui]')) return;
+ptr.set(e.pointerId, [e.clientX, e.clientY]); if (ptr.size === 1) moved = 0; wake();
+try { stage.setPointerCapture(e.pointerId); } catch (x) {}
+});
+stage.addEventListener('pointermove', (e) => {
+wake(); const p = ptr.get(e.pointerId); if (!p) return;
+const dx = e.clientX - p[0], dy = e.clientY - p[1]; p[0] = e.clientX; p[1] = e.clientY; moved += Math.abs(dx) + Math.abs(dy); wake();
+if (ptr.size === 1) { tg.az -= dx * 0.008; tg.el = clamp(tg.el + dy * 0.006, o.minEl, o.maxEl); }
+else if (ptr.size === 2) { const [a, b] = [...ptr.values()]; const dd = Math.hypot(a[0] - b[0], a[1] - b[1]); if (pinch) tg.d = clamp(tg.d * pinch / dd, o.minD, o.maxD); pinch = dd; }
+});
+const up = (e) => { ptr.delete(e.pointerId); pinch = 0; wake(); };
+stage.addEventListener('pointerup', up); stage.addEventListener('pointercancel', up);
+stage.addEventListener('wheel', (e) => { e.preventDefault(); tg.d = clamp(tg.d * Math.exp(e.deltaY * (e.ctrlKey ? 0.01 : 0.0013)), o.minD, o.maxD); wake(); }, { passive: false });
+stage.addEventListener('dblclick', () => { tg.az = o.az; tg.el = o.el; tg.d = o.d; });
+stage.addEventListener('click', (e) => { if (moved < 6 && o.onTap && !(e.target.closest && e.target.closest('[data-ui]'))) o.onTap(e); });
+return {
+wake, moved: () => moved,
+update(dt) {
+if (o.auto && performance.now() - idleAt > 6000 && ptr.size === 0) { if (o.swing) { if (tg.az > o.az + o.swing) dir = -1; else if (tg.az < o.az - o.swing) dir = 1; } tg.az += o.auto * dt * dir; }
+const k = Math.min(1, dt * 7);
+st.az += (tg.az - st.az) * k; st.el += (tg.el - st.el) * k; st.d += (tg.d - st.d) * k;
+cam.position.set(tgt.x + st.d * Math.cos(st.el) * Math.sin(st.az), tgt.y + st.d * Math.sin(st.el), tgt.z + st.d * Math.cos(st.el) * Math.cos(st.az));
+cam.lookAt(tgt);
+},
+};
+}
+function resizer(stage, r, cam) {
+const fit = () => { const w = Math.max(1, stage.clientWidth), hh = Math.max(1, stage.clientHeight); r.setSize(w, hh, false); cam.aspect = w / hh; cam.updateProjectionMatrix(); };
+if (window.ResizeObserver) new ResizeObserver(fit).observe(stage); else addEventListener('resize', fit);
+fit(); return fit;
+}
+function runLoop(frame, isActive) {
+let last = performance.now(), raf = 0, seen = true;
+if (window.IntersectionObserver) new IntersectionObserver((es) => { seen = es[es.length - 1].isIntersecting; }).observe(document.body);
+const loop = (now) => { raf = requestAnimationFrame(loop); if (document.hidden || !seen || (isActive && !isActive())) { last = now; return; } const dt = Math.min(0.1, (now - last) / 1000); last = now; frame(dt, now / 1000); };
+raf = requestAnimationFrame(loop);
+document.addEventListener('visibilitychange', () => { last = performance.now(); });
+}
+const _v = T ? new T.Vector3() : null;
+function project(cam, stage, x, y, z) {
+_v.set(x, y, z).project(cam);
+return { x: (_v.x * 0.5 + 0.5) * stage.clientWidth, y: (-_v.y * 0.5 + 0.5) * stage.clientHeight, z: _v.z, ok: _v.z > -1 && _v.z < 1 };
+}
+function sprite(draw, size) {
+const c = document.createElement('canvas'); c.width = c.height = size || 64; const g = c.getContext('2d'); draw(g, c.width); const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; return t;
+}
+const softDot = () => sprite((g, n) => { const r = g.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2); r.addColorStop(0, 'rgba(255,255,255,1)'); r.addColorStop(0.4, 'rgba(255,255,255,.55)'); r.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0, 0, n, n); });
+const N = CFG.cam || 1, SC = CFG.scene || 'rows', TR = SC === 'rack' ? String(CFG.rack || 'B3').toUpperCase() : '';
+const V = $('#v'), NM = $('#nm'), CLK = $('#clk'), REC = $('#rec'), MOT = $('#mot'), BOX = $('#box'), NSIG = $('#ns'), BL = $('#bl'), BR = $('#br');
+setText(NM, CFG.name || ('CAM-' + N)); if (TR) V.classList.add('rk');
+const p2 = (x) => String(x).padStart(2, '0');
+const clock = () => { const d = new Date(); setText(CLK, d.getFullYear() + '-' + p2(d.getMonth() + 1) + '-' + p2(d.getDate()) + ' ' + p2(d.getHours()) + ':' + p2(d.getMinutes()) + ':' + p2(d.getSeconds())); };
+clock(); setInterval(clock, 250);
+const ST = { on: 1, mot: 0, door: 0, fire: 0, batt: 0, leak: [0, 0, 0, 0, 0, 0], crac: ['RUNNING', 'RUNNING', 'RUNNING', 'STANDBY'], hot: 0 };
+const has = (k) => P(k).has;
+const num = (k, d) => { const p = P(k); return p.n == null ? d : p.n; };
+function readPts() {
+ST.on = has('cam' + N + '_on') ? num('cam' + N + '_on', 1) : 1;
+ST.mot = num('cam' + N + '_mot', 0); ST.door = num('door', 0); ST.fire = num('fire', 0); ST.batt = num('ups_batt', 0);
+for (let i = 0; i < 6; i++) ST.leak[i] = num('leak' + (i + 1), 0);
+for (let i = 0; i < 4; i++) { const p = P('crac' + (i + 1) + '_state'); if (p.s) ST.crac[i] = String(p.s).toUpperCase(); }
+ST.hot = SC === 'rows' ? num('r_B3_t', 22) : TR ? num('r_' + TR + '_t', 22) : 22;
+const tags = [];
+if (ST.door >= 1) tags.push(['DOOR OPEN', 'warning']);
+if (ST.fire >= 2) tags.push(['FIRE ALARM', 'critical']); else if (ST.fire >= 1) tags.push(['FIRE PRE-ALARM', 'warning']);
+if (ST.batt >= 1) tags.push(['UPS ON BATTERY', 'critical']);
+ST.leak.forEach((l, i) => { if (l >= 1) tags.push(['LEAK L' + (i + 1), 'critical']); });
+ST.crac.forEach((s, i) => { if (s === 'FAULT') tags.push(['CRAC-' + (i + 1) + ' FAULT', 'critical']); });
+if (ST.hot > 27) { if (TR) tags.unshift(['HOT ' + TR + ' ' + Math.round(ST.hot) + ' °C', 'critical']); else tags.push(['B3 ' + ST.hot.toFixed(1) + '°C', 'warning']); }
+if (!ST.on) tags.unshift(['OFFLINE', 'critical']);
+if (TR && tags.length > 4) { const rest = tags.splice(3); tags.push(['+' + rest.length, rest.some((x) => x[1] === 'critical') ? 'critical' : 'warning']); }
+BL.textContent = ''; for (const [t, lv] of tags) { const b = h('b', '', t, BL); b.style.setProperty('--c', CSSCOL[lv]); }
+const ht = P('hall_t'); setText(BR, ht.n != null ? 'HALL ' + ht.n.toFixed(1) + '°C' : '');
+REC.style.visibility = ST.on ? '' : 'hidden'; NSIG.style.display = ST.on ? 'none' : 'block';
+MOT.style.display = ST.on && ST.mot >= 1 ? 'block' : 'none';
+applyState();
+}
+let applyState = () => {};
+const r = (() => { if (!T) return null; try { const g = new T.WebGLRenderer({ antialias: false, preserveDrawingBuffer: true, powerPreference: 'low-power' }); g.domElement.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block'; V.prepend(g.domElement); return g; } catch (e) { console.warn('WebGL unavailable', e); return null; } })();
+if (r) {
+r.setPixelRatio(1);
+const scene = new T.Scene(); scene.background = new T.Color(0x1c1f22);
+const cam = new T.PerspectiveCamera(62, 16 / 9, 0.1, 60);
+const RT = new T.WebGLRenderTarget(640, 360, { depthBuffer: true });
+const rnd = ((s) => () => (s = (s * 16807) % 2147483647) / 2147483647)(7 + N);
+const tex = (w, hh, draw, rx, ry) => { const c = document.createElement('canvas'); c.width = w; c.height = hh; draw(c.getContext('2d'), w, hh); const t = new T.CanvasTexture(c); t.colorSpace = T.SRGBColorSpace; if (rx) { t.wrapS = t.wrapT = T.RepeatWrapping; t.repeat.set(rx, ry); } return t; };
+const L = (c, o) => new T.MeshLambertMaterial(Object.assign({ color: c }, o || {}));
+const B = (c, o) => new T.MeshBasicMaterial(Object.assign({ color: c }, o || {}));
+const box = (w, hh, d, m, x, y, z, par) => { const e = new T.Mesh(new T.BoxGeometry(w, hh, d), m); e.position.set(x, y, z); (par || scene).add(e); return e; };
+const HW = 8, HD = 6, HH = 3.2;
+const floorT = tex(64, 64, (g, w) => { g.fillStyle = '#c4c7c9'; g.fillRect(0, 0, w, w); g.fillStyle = '#d3d5d6'; g.fillRect(2, 2, w - 4, w - 4); g.strokeStyle = '#a3a7aa'; g.lineWidth = 1.5; g.strokeRect(1, 1, w - 2, w - 2); }, 26.6, 20);
+const fl = new T.Mesh(new T.PlaneGeometry(HW * 2, HD * 2), L(0xffffff, { map: floorT })); fl.rotation.x = -Math.PI / 2; scene.add(fl);
+const perfT = tex(32, 32, (g, w) => { g.fillStyle = '#7d8286'; g.fillRect(0, 0, w, w); g.fillStyle = '#3b3f42'; for (let y = 3; y < w; y += 4) for (let x = 3; x < w; x += 4) g.fillRect(x, y, 2, 2); g.strokeStyle = '#555'; g.strokeRect(0, 0, w, w); });
+const perfM = L(0xffffff, { map: perfT });
+const perf = (x, z) => { const p = new T.Mesh(new T.PlaneGeometry(0.58, 0.58), perfM); p.rotation.x = -Math.PI / 2; p.position.set(x, 0.004, z); scene.add(p); };
+for (let i = 0; i < 6; i++) { perf(-4.3 + i * 1.2, -1.3); perf(-3.1 + i * 1.2, 1.75); }
+const wallM = L(0xb9bdbf, { side: T.BackSide });
+const room = box(HW * 2, HH, HD * 2, [wallM, wallM, L(0xffffff, { side: T.BackSide, map: tex(64, 64, (g, w) => { g.fillStyle = '#a4a8aa'; g.fillRect(0, 0, w, w); g.strokeStyle = '#7a7e81'; g.lineWidth = 3; g.strokeRect(0, 0, w, w); }, 13, 10) }), wallM, wallM, wallM], 0, HH / 2, 0);
+box(HW * 2, 0.15, 0.04, L(0x6b6f72), 0, 0.075, -HD + 0.02); box(0.04, 0.15, HD * 2, L(0x6b6f72), -HW + 0.02, 0.075, 0); box(0.04, 0.15, HD * 2, L(0x6b6f72), HW - 0.02, 0.075, 0);
+box(HW * 2, 0.15, 0.04, L(0x6b6f72), 0, 0.075, HD - 0.02);
+const rackT = tex(64, 220, (g, w, hh) => {
+g.fillStyle = '#41464b'; g.fillRect(0, 0, w, hh); g.fillStyle = '#16181a'; g.fillRect(4, 6, w - 8, hh - 12);
+for (let y = 10; y < hh - 10; y += 7) { const s = rnd(); if (s < 0.18) continue; g.fillStyle = s < 0.5 ? '#3a3f44' : s < 0.8 ? '#474d53' : '#5a6167'; g.fillRect(6, y, w - 12, 5); g.fillStyle = '#0b0c0d'; g.fillRect(8, y + 2, 20, 1); }
+g.fillStyle = 'rgba(0,0,0,.35)'; for (let y = 6; y < hh; y += 3) g.fillRect(4, y, w - 8, 1);
+g.fillStyle = '#5a6066'; g.fillRect(w - 7, hh / 2 - 10, 2, 20);
+});
+const rackM = L(0xffffff, { map: rackT }), rackS = L(0x26292c), rackTop = L(0x2a2d30);
+const racks = {}, ledPos = [], mtx0 = new T.Matrix4();
+function rack(id, x, z, face) { // face: +1 → front +z, -1 → -z, 2 → front -x
+const along = face === 2;
+const g = new T.BoxGeometry(along ? 1.0 : 0.6, 2.0, along ? 0.6 : 1.0);
+const m = along ? [rackS, rackM, rackTop, rackS, rackS, rackS] : [rackS, rackS, rackTop, rackS, rackM, rackM];
+const e = new T.Mesh(g, m); e.position.set(x, 1.0, z); scene.add(e); racks[id] = e; e.userData.face = face;
+if (id === TR) return; // detailed face + its own LEDs below
+for (let k = 0; k < 7; k++) { const y = 0.25 + Math.floor(rnd() * 32) * 0.05, o = rnd() < 0.5 ? -0.17 : 0.17;
+if (along) ledPos.push([x - 0.505, y, z + o]); else { ledPos.push([x + o, y, z + 0.505 * (face > 0 ? 1 : -1)]); ledPos.push([x - o, y + 0.05, z - 0.505 * (face > 0 ? 1 : -1)]); } }
+}
+for (let i = 0; i < 8; i++) rack('A' + (i + 1), -4.3 + i * 0.6, -2.8, 1);
+for (let i = 0; i < 8; i++) rack('B' + (i + 1), -3.1 + i * 0.6, 0.2, -1);
+for (let i = 0; i < 7; i++) rack('C' + (i + 1), 6.2, -4.6 + i * 0.6, 2);
+for (let i = 0; i < 4; i++) rack('D' + (i + 1), 1.2 + i * 0.6, 3.4, -1);
+const RKD = {"A5":[["compute",2,1],["compute",4,1],["compute",6,1],["compute",8,1],["compute",10,1],["compute",12,1],["database",16,2],["database",19,2],["hypervisor",24,2],["hypervisor",27,2],["switch",41,1]],"B3":[["gpu",2,4],["gpu",7,4],["gpu",12,4],["gpu",17,4],["compute",24,1],["compute",26,1],["switch",39,1],["switch",41,1]],"C2":[["storage",2,2],["storage",5,2],["storage",8,2],["storage",11,2],["backup",20,2],["tape",30,4],["switch",41,1]],"D1":[["switch",40,1],["switch",38,1],["firewall",34,1],["firewall",32,1],["switch",20,1],["switch",22,1],["switch",24,1],["switch",26,1]]};
+let TF = null, tL = null;
+if (TR && racks[TR]) {
+const e = racks[TR], f = e.userData.face, n = f === 2 ? [-1, 0] : [0, f], R = f === 2 ? [0, 1] : [f, 0];
+const fx = e.position.x + n[0] * 0.5, fz = e.position.z + n[1] * 0.5;
+const W = 192, H = 640, UH = 14, M = 26, X0 = 16, X1 = W - 16, XW = X1 - X0, tl = [];
+const cv = document.createElement('canvas'); cv.width = W; cv.height = H; const g = cv.getContext('2d');
+g.fillStyle = '#3a3f44'; g.fillRect(0, 0, W, H); g.fillStyle = '#08090a'; g.fillRect(X0 - 8, M - 4, XW + 16, H - 2 * M + 8);
+g.fillStyle = '#2a2e32'; g.fillRect(X0 - 8, M - 4, 7, H - 2 * M + 8); g.fillRect(X1 + 1, M - 4, 7, H - 2 * M + 8);
+g.fillStyle = '#0b0c0d'; for (let u = 0; u < 42; u++) { const y = M + u * UH + 5; g.fillRect(X0 - 6, y, 3, 3); g.fillRect(X1 + 3, y, 3, 3); }
+g.fillStyle = '#e6e8ea'; g.font = 'bold 18px sans-serif'; g.textAlign = 'center'; g.fillText(TR, W / 2, 19);
+const led = (x, y, k) => tl.push([x / W, 1 - y / H, k]); // k 0 steady green · 1 blue · 2 activity green · 3 activity amber
+const bez = (y, hh, c1, c2) => { const gr = g.createLinearGradient(0, y, 0, y + hh); gr.addColorStop(0, c1); gr.addColorStop(1, c2); g.fillStyle = gr; g.fillRect(X0, y + 0.5, XW, hh - 1);
+g.fillStyle = 'rgba(255,255,255,.18)'; g.fillRect(X0, y + 0.5, XW, 1); g.fillStyle = 'rgba(0,0,0,.5)'; g.fillRect(X0, y + hh - 1.5, XW, 1); g.fillStyle = 'rgba(255,255,255,.12)'; g.fillRect(X0, y + 1, 5, hh - 2); g.fillRect(X1 - 5, y + 1, 5, hh - 2); };
+const bays = (x, y, w, hh, cols, rows, c, k) => { const bw = w / cols, bh = hh / rows; for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) { const bx = x + i * bw, by = y + j * bh;
+g.fillStyle = c; g.fillRect(bx + 0.7, by + 0.7, bw - 1.4, bh - 1.4); g.fillStyle = 'rgba(0,0,0,.45)'; g.fillRect(bx + 1.5, by + bh * 0.35, bw - 3, 1); led(bx + bw - 3, by + bh - 2.5, k); } };
+const ports = (x, y, cols, k) => { for (let j = 0; j < 2; j++) for (let i = 0; i < cols; i++) { g.fillStyle = '#5b6066'; g.fillRect(x + i * 7, y + j * 5, 6, 4); g.fillStyle = '#020303'; g.fillRect(x + i * 7 + 1, y + j * 5 + 1, 4, 3); if (j === 0 && i % 2 === 0) led(x + i * 7 + 3, y - 1, k); } };
+const DRAW = {
+compute: (y, hh) => { bez(y, hh, '#868c93', '#50565c'); for (let i = 0; i < 8; i++) { g.fillStyle = '#262a2e'; g.fillRect(X0 + 26 + i * 16, y + 3, 13, hh - 6); } led(X0 + 10, y + hh / 2, 0); led(X0 + 18, y + hh / 2, 2); },
+database: (y, hh) => { bez(y, hh, '#5f6872', '#363c42'); g.fillStyle = '#d08a2a'; g.fillRect(X0 + 6, y + 3, 3, hh - 6); bays(X0 + 14, y + 3, XW - 20, hh - 6, 12, 1, '#2b3035', 2); },
+hypervisor: (y, hh) => { bez(y, hh, '#4a5560', '#2a3037'); g.fillStyle = '#3d8bff'; g.fillRect(X0 + 6, y + 3, 3, hh - 6); bays(X0 + 30, y + 3, XW - 36, hh - 6, 8, 1, '#21262b', 2); led(X0 + 18, y + 6, 1); },
+gpu: (y, hh) => { bez(y, hh, '#2a2e32', '#15171a'); g.fillStyle = '#0c0d0f'; g.fillRect(X0 + 22, y + 4, XW - 28, hh - 8);
+g.fillStyle = '#3b4046'; for (let yy = y + 6; yy < y + hh - 6; yy += 3.4) for (let xx = X0 + 24 + ((yy - y) % 6.8 > 3 ? 1.7 : 0); xx < X1 - 7; xx += 3.4) g.fillRect(xx, yy, 1.6, 1.6);
+g.strokeStyle = '#4d535a'; g.lineWidth = 1.5; for (let i = 0; i < 3; i++) { g.beginPath(); g.arc(X0 + 48 + i * 45, y + hh / 2, hh / 2 - 7, 0, 6.3); g.stroke(); }
+g.fillStyle = '#3fbf5a'; g.fillRect(X0 + 7, y + 4, 4, hh - 8); led(X0 + 15, y + 8, 0); led(X0 + 15, y + 14, 2); led(X0 + 15, y + 20, 2); },
+storage: (y, hh) => { bez(y, hh, '#9097a0', '#5e646b'); bays(X0 + 8, y + 2, XW - 16, hh - 4, 4, 3, '#3a3f45', 2); },
+backup: (y, hh) => { bez(y, hh, '#3f454c', '#24282d'); g.fillStyle = '#7ec8d8'; g.fillRect(X0 + 8, y + 6, 18, 8); bays(X0 + 32, y + 3, XW - 38, hh - 6, 6, 2, '#1d2125', 3); },
+tape: (y, hh) => { bez(y, hh, '#868c92', '#555b61'); g.fillStyle = '#79c2d0'; g.fillRect(X0 + 8, y + 7, 22, 12); g.fillStyle = '#2c3135'; for (let i = 0; i < 4; i++) g.fillRect(X0 + 9 + (i % 2) * 11, y + 26 + Math.floor(i / 2) * 9, 8, 6);
+g.fillStyle = '#0d0f11'; g.fillRect(X0 + 36, y + 5, XW - 70, hh - 10); for (let i = 0; i < 16; i++) { g.fillStyle = ['#e9edf0', '#4c8fd6', '#e0b84c', '#d9534f'][i % 4]; g.fillRect(X0 + 40 + i * 5.6, y + 9, 3.6, hh - 26); }
+g.fillStyle = '#4a5056'; g.fillRect(X1 - 28, y + 6, 20, hh - 12); g.fillStyle = '#9aa0a6'; g.fillRect(X1 - 22, y + hh / 2 - 6, 8, 12); led(X0 + 32, y + 9, 0); led(X0 + 32, y + 15, 3); },
+switch: (y, hh) => { bez(y, hh, '#24282c', '#121417'); ports(X0 + 22, y + 2, 16, 2); for (let i = 0; i < 4; i++) { g.fillStyle = '#7d848b'; g.fillRect(X1 - 30 + i * 6, y + 3, 5, 8); } led(X0 + 10, y + 5, 0); led(X0 + 10, y + 10, 1); },
+firewall: (y, hh) => { bez(y, hh, '#46282b', '#221214'); g.fillStyle = '#d9473f'; g.fillRect(X0 + 6, y + 2, 4, hh - 4); ports(X0 + 60, y + 2, 8, 3); led(X0 + 16, y + 5, 0); led(X0 + 16, y + 10, 3); },
+};
+const used = [];
+for (const [t, u, s] of (RKD[TR] || [])) { const y = H - M - (u + s - 1) * UH; (DRAW[t] || DRAW.compute)(y, s * UH); for (let k = u; k < u + s; k++) used[k] = 1; }
+for (let u = 1; u <= 42; u++) if (!used[u]) { const y = H - M - u * UH; g.fillStyle = '#1b1d20'; g.fillRect(X0, y + 0.5, XW, UH - 1); g.fillStyle = '#26292d'; g.fillRect(X0 + 4, y + 6, XW - 8, 1); g.fillStyle = '#4a4f55'; g.fillRect(X0 + 2, y + 6, 2, 2); g.fillRect(X1 - 4, y + 6, 2, 2); }
+const tx = new T.CanvasTexture(cv); tx.colorSpace = T.SRGBColorSpace;
+const faceM = L(0xffffff, { map: tx, emissiveMap: tx, emissive: 0x000000 }), mats = e.material.slice(); mats[f === 2 ? 1 : f > 0 ? 4 : 5] = faceM; e.material = mats;
+const at = (u, v) => [fx + R[0] * (u - 0.5) * 0.6 + n[0] * 0.004, v * 2.0, fz + R[1] * (u - 0.5) * 0.6 + n[1] * 0.004];
+const TC = [new T.Color(0x3aff7a), new T.Color(0x6aa8ff), new T.Color(0x3aff7a), new T.Color(0xffb020)];
+const lm = new T.InstancedMesh(new T.BoxGeometry(f === 2 ? 0.006 : 0.016, 0.009, f === 2 ? 0.016 : 0.006), new T.MeshBasicMaterial({ toneMapped: false }), tl.length);
+tl.forEach(([u, v], i) => { mtx0.makeTranslation(...at(u, v)); lm.setMatrixAt(i, mtx0); lm.setColorAt(i, TC[tl[i][2]]); }); scene.add(lm);
+tL = { lm, tl, TC, on: tl.map(() => 1) };
+TF = { n, R, fx, fz, faceM, sg: TR === 'D1' ? -1 : 1 }; // sg: side the technician stands on (D1 ends its row → work in front of D2)
+}
+const ledM = new T.MeshBasicMaterial({ toneMapped: false });
+const leds = new T.InstancedMesh(new T.BoxGeometry(0.03, 0.018, 0.03), ledM, ledPos.length);
+const LC = [new T.Color(0x3aff7a), new T.Color(0x7ab8ff), new T.Color(0x3aff7a), new T.Color(0xffb020)], OFF = new T.Color(0x0a1a10);
+const ledOn = ledPos.map(() => rnd() < 0.8), ledCol = ledPos.map(() => LC[Math.floor(rnd() * 3.3)]);
+const mtx = new T.Matrix4();
+ledPos.forEach((p, i) => { mtx.makeTranslation(p[0], p[1], p[2]); leds.setMatrixAt(i, mtx); leds.setColorAt(i, ledOn[i] ? ledCol[i] : OFF); });
+scene.add(leds);
+const glowT = softDot();
+const hotG = new T.Sprite(new T.SpriteMaterial({ map: glowT, color: 0xff3a1a, transparent: true, opacity: 0, blending: T.AdditiveBlending, depthWrite: false }));
+hotG.scale.set(1.6, 2.6, 1); hotG.position.set(-1.9, 1.1, -0.36); scene.add(hotG);
+const hotL = new T.PointLight(0xff4020, 0, 4, 1.5); hotL.position.set(-1.9, 1.2, -0.8); scene.add(hotL);
+if (TF) { const { n, fx, fz } = TF; hotG.scale.set(1.5, 2.7, 1); hotG.position.set(fx + n[0] * 0.25, 1.05, fz + n[1] * 0.25); hotL.position.set(fx + n[0] * 0.7, 1.2, fz + n[1] * 0.7); }
+const cabT = tex(64, 128, (g, w, hh) => { g.fillStyle = '#d4d6d6'; g.fillRect(0, 0, w, hh); g.strokeStyle = '#8a8d8f'; g.lineWidth = 2; g.strokeRect(3, 3, w / 2 - 4, hh - 6); g.strokeRect(w / 2 + 1, 3, w / 2 - 4, hh - 6);
+g.fillStyle = '#3a3f44'; g.fillRect(10, 20, 16, 10); g.fillStyle = '#7dd3a0'; g.fillRect(12, 22, 12, 6); g.fillStyle = '#555'; for (let y = 90; y < 118; y += 4) g.fillRect(w / 2 + 6, y, w / 2 - 12, 2); g.fillStyle = '#999'; g.fillRect(w / 2 - 4, 60, 2, 12); g.fillRect(w / 2 + 2, 60, 2, 12); });
+const cabDT = tex(64, 128, (g, w, hh) => { g.fillStyle = '#222528'; g.fillRect(0, 0, w, hh); g.strokeStyle = '#3c4044'; g.lineWidth = 2; g.strokeRect(3, 3, w - 6, hh - 6); g.fillStyle = '#2f3337'; for (let y = 12; y < hh - 10; y += 4) g.fillRect(8, y, w - 16, 2); g.fillStyle = '#5ad1ff'; g.fillRect(24, 16, 16, 7); });
+const cabM = L(0xffffff, { map: cabT }), cabDM = L(0xffffff, { map: cabDT }), cabS = L(0xa9adae), cabDS = L(0x26292c);
+for (let i = 0; i < 10; i++) { const dark = i >= 7; const m = dark ? cabDM : cabM, s = dark ? cabDS : cabS; const e = new T.Mesh(new T.BoxGeometry(0.62, 2.05, 0.8), [s, s, s, s, m, s]); e.position.set(-4.4 + i * 0.64, 1.025, -5.58); scene.add(e); }
+box(0.5, 0.7, 0.18, L(0xcfd2d3), -5.1, 1.35, -5.9);
+const DX = -6.4;
+box(1.25, 2.25, 0.06, L(0x55595c), DX, 1.125, -5.99);
+const corr = new T.Mesh(new T.PlaneGeometry(1.0, 2.1), B(0xf2efe6)); corr.position.set(DX, 1.05, -5.975); scene.add(corr);
+const doorP = new T.Group(); doorP.position.set(DX - 0.5, 0, -5.94); scene.add(doorP);
+const doorT = tex(32, 64, (g, w, hh) => { g.fillStyle = '#7d8184'; g.fillRect(0, 0, w, hh); g.fillStyle = '#9ea2a5'; g.fillRect(24, 26, 2, 12); g.fillStyle = '#c9d4dc'; g.fillRect(12, 8, 8, 14); });
+box(1.0, 2.1, 0.05, L(0xffffff, { map: doorT }), 0.5, 1.05, 0, doorP);
+const doorL = new T.PointLight(0xfff4e0, 0, 6, 1.5); doorL.position.set(DX, 1.6, -5.4); scene.add(doorL);
+const cracT = tex(64, 96, (g, w, hh) => { g.fillStyle = '#4a4f53'; g.fillRect(0, 0, w, hh); g.fillStyle = '#2c3034'; for (let y = 34; y < hh - 6; y += 4) g.fillRect(6, y, w - 12, 2); g.fillStyle = '#1b1e21'; g.fillRect(8, 8, 20, 12); g.strokeStyle = '#33383c'; g.strokeRect(2, 2, w - 4, hh - 4); });
+const cracM = L(0xffffff, { map: cracT }), cracS = L(0x45494d);
+const CR = [[-7.45, -0.8, Math.PI / 2], [5.6, -5.45, 0], [7.45, 2.3, -Math.PI / 2], [-5.0, 5.45, Math.PI]];
+const cracs = CR.map(([x, z, ry], i) => {
+const g = new T.Group(); g.position.set(x, 0, z); g.rotation.y = ry; scene.add(g);
+box(1.4, 2.0, 0.9, [cracS, cracS, cracS, cracS, cracM, cracS], 0, 1.0, 0, g);
+const led = box(0.07, 0.07, 0.02, B(0x22ff66), -0.35, 1.72, 0.46, g);
+const scr = box(0.22, 0.12, 0.02, B(0x3a7a8a), -0.1, 1.72, 0.46, g);
+const n = 26, pos = new Float32Array(n * 3), seeds = [];
+for (let k = 0; k < n; k++) seeds.push([rnd(), rnd() - 0.5, rnd()]);
+const pg = new T.BufferGeometry(); pg.setAttribute('position', new T.BufferAttribute(pos, 3));
+const pts = new T.Points(pg, new T.PointsMaterial({ map: glowT, size: 0.35, transparent: true, opacity: 0.1, color: 0xdff4ff, depthWrite: false, blending: T.AdditiveBlending }));
+g.add(pts);
+return { g, led, scr, pts, pos, seeds, n };
+});
+for (let i = 0; i < 3; i++) box(0.26, 0.32, 0.95, L(0xeef0f0), 7.86, 2.55, -4.6 + i * 1.9);
+for (const [x, z] of [[-7.85, 4.6], [-7.8, -5.8], [3.8, -5.85], [7.85, 5.2]]) box(0.18, 0.12, 0.18, L(0xe8e8e8), x, 2.95, z);
+const trayM = L(0x8d9296);
+box(6.0, 0.08, 0.45, trayM, -2.2, 2.62, -2.8); box(6.0, 0.08, 0.45, trayM, -1.0, 2.62, 0.2); box(0.45, 0.08, 5.0, trayM, 6.2, 2.62, -2.8);
+box(1.9, 0.08, 0.45, trayM, 2.3, 2.62, 3.4);
+for (const [x, z] of [[-4.6, -2.8], [0.6, -2.8], [-3.8, 0.2], [1.8, 0.2]]) box(0.04, 0.55, 0.04, trayM, x, 2.92, z);
+const cabY = L(0xd4a017); box(5.8, 0.05, 0.3, cabY, -2.2, 2.68, -2.8); box(5.8, 0.05, 0.3, cabY, -1.0, 2.68, 0.2);
+const lampM = B(0xf6f8ff), lampOff = B(0x3a3d40), lampE = B(0xfff1c8);
+const lamps = [];
+for (const z of [-4.3, -1.3, 1.8, 4.6]) for (let x = -6; x <= 6.1; x += 2.4) { const e = new T.Mesh(new T.PlaneGeometry(1.2, 0.2), lampM); e.rotation.x = Math.PI / 2; e.position.set(x, HH - 0.01, z); scene.add(e); lamps.push(e); }
+const emBox = [[-7.95, 2.6, -1, Math.PI / 2], [0, 2.6, -5.98, 0], [7.95, 2.7, 3.8, -Math.PI / 2], [-2, 2.6, 5.98, Math.PI]].map(([x, y, z, ry]) => { const e = box(0.35, 0.1, 0.06, lampOff, x, y, z); e.rotation.y = ry; return e; });
+const amb = new T.AmbientLight(0xffffff, 0.25), hemi = new T.HemisphereLight(0xf4f6ff, 0x55595c, 0.55);
+scene.add(amb, hemi);
+const ceil = [[-4, -2.8], [2, -2.8], [-4, 2.4], [2, 2.4], [6, -1]].map(([x, z]) => { const l = new T.PointLight(0xf2f5ff, 6, 11, 1.2); l.position.set(x, 2.95, z); scene.add(l); return l; });
+const emL = [[-6.5, -1], [0, -5.2], [6.6, 3.8]].map(([x, z]) => { const l = new T.PointLight(0xffe0a8, 0, 9, 1.3); l.position.set(x, 2.4, z); scene.add(l); return l; });
+let rkF = null, rkE = null;
+if (TF) { const { n, fx, fz } = TF, near = (ls) => ls.reduce((a, b) => (Math.hypot(b.position.x - fx, b.position.z - fz) < Math.hypot(a.position.x - fx, a.position.z - fz) ? b : a));
+rkF = near(ceil); rkF.position.set(fx + n[0] * 1.1, 2.5, fz + n[1] * 1.1); rkE = near(emL); rkE.position.set(fx + n[0] * 1.3, 2.7, fz + n[1] * 1.3); rkE.distance = 6; }
+const strobe = new T.PointLight(0xff1a10, 0, 14, 1); strobe.position.set(-1, 2.9, -4.8); scene.add(strobe);
+const strobeM = B(0x401010); box(0.14, 0.14, 0.06, strobeM, -1, 2.75, -5.96); box(0.14, 0.14, 0.06, strobeM, 7.96, 2.75, 0).rotation.y = Math.PI / 2;
+const fogC = new T.Color(0x9ea3a6); scene.fog = new T.FogExp2(fogC, 0);
+const smokeT = sprite((g, n) => { for (let k = 0; k < 9; k++) { const x = n * (0.3 + rnd() * 0.4), y = n * (0.3 + rnd() * 0.4), rr = n * (0.15 + rnd() * 0.2); const gr = g.createRadialGradient(x, y, 0, x, y, rr); gr.addColorStop(0, 'rgba(255,255,255,.35)'); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, n, n); } }, 128);
+const smoke = [];
+for (let k = 0; k < 16; k++) { const s = new T.Sprite(new T.SpriteMaterial({ map: smokeT, color: 0xb8bcbf, transparent: true, opacity: 0, depthWrite: false, fog: false })); const sc = 3 + rnd() * 3; s.scale.set(sc, sc * 0.6, 1); s.userData = { x: -6 + rnd() * 13, z: -5 + rnd() * 10, y: 2.0 + rnd() * 1.0, ph: rnd() * 6 };
+if (TF) { const { n, R, fx, fz } = TF, a = 0.3 + rnd() * 1.6, b = (rnd() - 0.5) * 4; s.scale.multiplyScalar(0.55); Object.assign(s.userData, { x: fx + n[0] * a + R[0] * b, z: fz + n[1] * a + R[1] * b, y: 1.4 + rnd() * 1.1 }); }
+scene.add(s); smoke.push(s); }
+const LK = [[5.1, -4.4], [-6.7, 0.6], [6.9, 0.9], [6.9, 3.6], [-3.6, 4.6], [0.6, 4.9]];
+const pudM = new T.ShaderMaterial({ transparent: true, depthWrite: false, uniforms: { t: { value: 0 }, lit: { value: 1 } },
+vertexShader: 'varying vec2 u;void main(){u=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+fragmentShader: 'uniform float t,lit;varying vec2 u;void main(){vec2 c=u-.5;float a=atan(c.y,c.x);float rr=.36+.05*sin(a*3.+1.)+.04*sin(a*5.+2.)+.03*sin(a*7.);float d=length(c);if(d>rr)discard;' +
+'float s=pow(max(0.,sin(c.x*38.+t*2.3)*sin(c.y*31.-t*1.7)),6.)*.9;float e=smoothstep(rr,rr-.05,d);vec3 col=vec3(.05,.07,.08)+vec3(.7,.8,.85)*s*lit;gl_FragColor=vec4(pow(col,vec3(2.2)),e*.85);}' });
+const puddles = LK.map(([x, z]) => { const p = new T.Mesh(new T.PlaneGeometry(1.5, 1.2), pudM); p.rotation.x = -Math.PI / 2; p.position.set(x, 0.008, z); p.visible = false; scene.add(p); return p; });
+for (const [x, z] of LK) box(0.08, 0.03, 0.08, L(0x2b6fd6), x, 0.015, z);
+const tech = new T.Group(); scene.add(tech); tech.visible = false;
+const shirt = L(0x2a3a5c), pants = L(0x2b2b30), skin = L(0xc69878), vest = L(0xc8d23a);
+const leg = (x) => { const g = new T.Group(); g.position.set(x, 0.9, 0); box(0.13, 0.88, 0.16, pants, 0, -0.44, 0, g); box(0.14, 0.07, 0.26, L(0x111111), 0, -0.86, 0.04, g); tech.add(g); return g; };
+const lg = [leg(-0.09), leg(0.09)];
+box(0.38, 0.6, 0.22, shirt, 0, 1.2, 0, tech); box(0.4, 0.3, 0.24, vest, 0, 1.28, 0, tech);
+const arm = (x) => { const g = new T.Group(); g.position.set(x, 1.47, 0); box(0.1, 0.62, 0.12, shirt, 0, -0.3, 0, g); box(0.09, 0.1, 0.1, skin, 0, -0.64, 0, g); tech.add(g); return g; };
+const ar = [arm(-0.25), arm(0.25)];
+const head = new T.Mesh(new T.IcosahedronGeometry(0.12, 1), skin); head.position.set(0, 1.66, 0); tech.add(head);
+box(0.25, 0.08, 0.27, L(0x222222), 0, 1.75, -0.01, tech);
+const PATHS = { west: [[-5.4, 1.9], [3.6, 1.7], [3.9, 2.4], [-5.4, 2.5]], back: [[-6.2, -5.0], [-5.6, -1.3], [2.8, -1.3], [3.0, -0.6], [-5.0, -0.9]], rows: [[3.5, -4.6], [3.4, 2.6], [-4.0, 2.4], [3.0, 2.2]], east: [[5.0, 2.5], [-4.6, 2.4], [-4.6, 1.8], [4.6, -1.0], [4.8, 1.0]] };
+const PATH = (PATHS[SC] || PATHS.rows).slice(); PATH.push(PATH[0]);
+const segL = []; let pathLen = 0;
+for (let i = 1; i < PATH.length; i++) { const d = Math.hypot(PATH[i][0] - PATH[i - 1][0], PATH[i][1] - PATH[i - 1][1]); segL.push(d); pathLen += d; }
+let walkS = rnd() * pathLen;
+function walk(dt) {
+walkS = (walkS + dt * 1.05) % pathLen; let s = walkS, i = 0; while (s > segL[i]) { s -= segL[i]; i++; }
+const a = PATH[i], b = PATH[i + 1], k = s / segL[i];
+tech.position.set(lerp(a[0], b[0], k), 0, lerp(a[1], b[1], k));
+tech.rotation.y = Math.atan2(b[0] - a[0], b[1] - a[1]);
+const sw = Math.sin(walkS * 5.4) * 0.5; lg[0].rotation.x = sw; lg[1].rotation.x = -sw; ar[0].rotation.x = -sw * 0.7; ar[1].rotation.x = sw * 0.7;
+tech.position.y = Math.abs(Math.cos(walkS * 5.4)) * 0.03;
+}
+let rkS = 0, rkSeen = 0; const RKP = [], rkL = [];
+if (TF) { const { n, R, fx, fz } = TF; const o = (a, b) => [fx + n[0] * a + R[0] * b, fz + n[1] * a + R[1] * b], m = o(0.95, 0.62 * TF.sg), dv = TR[0] === 'C' || TR[0] === 'D' ? 3 : -3;
+RKP.push(TR[0] === 'C' ? [m[0], m[1] + dv] : [m[0] + dv, m[1]], m, o(0.42, 0.62 * TF.sg)); for (let i = 1; i < 3; i++) rkL.push(Math.hypot(RKP[i][0] - RKP[i - 1][0], RKP[i][1] - RKP[i - 1][1])); }
+function walkUp(dt) {
+rkS = Math.min(rkS + dt * 1.05, rkL[0] + rkL[1]); let s = rkS, i = 0; if (s > rkL[0]) { s -= rkL[0]; i = 1; }
+const a = RKP[i], b = RKP[i + 1], k = Math.min(1, s / rkL[i]); tech.position.set(lerp(a[0], b[0], k), 0, lerp(a[1], b[1], k));
+if (rkS < rkL[0] + rkL[1]) { tech.rotation.y = Math.atan2(b[0] - a[0], b[1] - a[1]); const sw = Math.sin(rkS * 5.4) * 0.5; lg[0].rotation.x = sw; lg[1].rotation.x = -sw; ar[0].rotation.x = -sw * 0.7; ar[1].rotation.x = sw * 0.7; tech.position.y = Math.abs(Math.cos(rkS * 5.4)) * 0.03; return; }
+const tt = performance.now() / 1000; tech.rotation.y = Math.atan2(-TF.n[0], -TF.n[1]) + 0.35 * TF.sg; tech.position.y = 0; lg[0].rotation.x = lg[1].rotation.x = 0;
+ar[0].rotation.x = -0.15; ar[1].rotation.x = -1.25 + Math.sin(tt * 1.7) * 0.18; tech.position.y = Math.sin(tt * 0.9) * 0.006;
+}
+const CAMS = { west: [[-7.6, 2.85, 4.5], [1.0, 0.9, -2.2]], back: [[-7.6, 2.95, -5.6], [1.6, 0.5, 3.6]], rows: [[3.6, 2.9, -5.7], [-3.4, 0.4, 2.6]], east: [[7.6, 2.85, 5.1], [-2.4, 0.7, -2.6]] };
+const cp = CAMS[SC] || CAMS.rows; cam.position.set(...cp[0]); cam.lookAt(...cp[1]);
+const HF = TF ? 36 : 47.5; // half horizontal FOV; the rack close-up uses a longer lens
+if (TF) { const { n, R, fx, fz } = TF; cam.position.set(fx + n[0] * 2.3 - R[0] * 0.3 * TF.sg, 2.55, fz + n[1] * 2.3 - R[1] * 0.3 * TF.sg); cam.lookAt(fx - R[0] * 0.05, 1.1, fz - R[1] * 0.05); }
+const BAR = 0.13;
+const post = new T.ShaderMaterial({ uniforms: { tD: { value: RT.texture }, time: { value: 0 }, off: { value: 0 }, res: { value: new T.Vector2(640, 360) }, red: { value: 0 } }, depthTest: false,
+vertexShader: 'varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position.xy,0.,1.);}',
+fragmentShader: `uniform sampler2D tD;uniform float time,off,red;uniform vec2 res;varying vec2 vUv;
+float h(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
+void main(){vec2 cc=vUv-.5;float a=res.x/res.y;vec2 q=cc*vec2(a,1.);float r2=dot(q,q);vec2 uv=.5+cc*(1.-${BAR}*r2)*(1.-${BAR}*.18);
+vec3 col;float sd=floor(time*24.);
+if(off>.5){float n=h(floor(vUv*res*.5)+sd*1.7);float band=smoothstep(.0,.08,fract(vUv.y*1.5-time*.35))*smoothstep(.5,.4,fract(vUv.y*1.5-time*.35));
+col=mix(vec3(n*.75),vec3(.08,.16,.62)+n*.18,.55+.35*band);col*=.85+.15*sin(vUv.y*res.y*3.14);}
+else{vec2 px=1./res;vec2 d=cc*.006;
+col=vec3(texture2D(tD,uv+d).r,texture2D(tD,uv).g,texture2D(tD,uv-d).b)*.5+(texture2D(tD,uv+vec2(px.x,0.)).rgb+texture2D(tD,uv-vec2(px.x,0.)).rgb+texture2D(tD,uv+vec2(0.,px.y)).rgb+texture2D(tD,uv-vec2(0.,px.y)).rgb)*.125;
+col=pow(max(col,0.),vec3(1./2.2));float l=dot(col,vec3(.2126,.7152,.0722));col=mix(vec3(l),col,.5+red*.35);col=(col-.5)*1.12+.52;col*=vec3(.95,1.,.97);
+col*=1.-.5*smoothstep(.3,1.,length(cc*vec2(1.,.9))*1.45);col*=.92+.08*sin(vUv.y*res.y*1.6);
+float n=h(vUv*res+sd)+h(vUv*res*1.37+sd*1.9)-1.;col+=n*(.05+.04*(1.-l));col+=.012*sin(vUv.y*9.-time*2.);}
+if(uv.x<0.||uv.x>1.||uv.y<0.||uv.y>1.)col=vec3(0.);gl_FragColor=vec4(clamp(col,0.,1.),1.);}` });
+const pScene = new T.Scene(), pCam = new T.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+pScene.add(new T.Mesh(new T.PlaneGeometry(2, 2), post));
+let vw = 1, vh = 1;
+const draw = () => { r.setRenderTarget(RT); r.render(scene, cam); r.setRenderTarget(null); r.render(pScene, pCam); };
+const fit = () => { vw = Math.max(1, V.clientWidth); vh = Math.max(1, V.clientHeight); r.setSize(vw, vh, false); const a = vw / vh, rw = 640, rh = Math.round(640 / a);
+RT.setSize(rw, rh); post.uniforms.res.value.set(rw, rh); cam.aspect = a; cam.fov = 2 * Math.atan(Math.tan(HF * Math.PI / 180) / a) * 180 / Math.PI; cam.updateProjectionMatrix(); draw(); }; // setSize clears the canvas → redraw now, not on the next (maybe paused) frame
+if (window.ResizeObserver) new ResizeObserver(fit).observe(V); fit();
+const _p = new T.Vector3(), ray = new T.Raycaster(), blockers = Object.values(racks).concat(cracs.map((c) => c.g.children[0]));
+function toScreen(x, y, z) {
+_p.set(x, y, z).project(cam); if (_p.z > 1 || _p.z < -1) return null;
+const sx = _p.x * 0.5, sy = _p.y * 0.5, a = vw / vh; let cx = sx, cy = sy;
+for (let k = 0; k < 6; k++) { const r2 = cx * cx * a * a + cy * cy, f = (1 - BAR * r2) * (1 - BAR * 0.18); cx = sx / f; cy = sy / f; }
+return [(cx + 0.5) * vw, (0.5 - cy) * vh];
+}
+function applyStateImpl() {
+const batt = ST.batt >= 1;
+for (const l of lamps) l.material = batt ? lampOff : lampM;
+for (const e of emBox) e.material = batt ? lampE : lampOff;
+ceil.forEach((l) => { l.intensity = batt ? 0 : 6; }); emL.forEach((l) => { l.intensity = batt ? 2.2 : 0; });
+amb.intensity = batt ? 0.04 : 0.25; hemi.intensity = batt ? 0.08 : 0.55;
+doorP.rotation.y = ST.door >= 1 ? 1.25 : 0; doorL.intensity = ST.door >= 1 ? 3 : 0;
+puddles.forEach((p, i) => { p.visible = ST.leak[i] >= 1; });
+cracs.forEach((c, i) => { const s = ST.crac[i]; c.led.material.color.setHex(s === 'FAULT' ? 0xff1a1a : s === 'RUNNING' ? 0x22ff66 : s === 'STANDBY' ? 0xffb020 : 0x555555); c.scr.material.color.setHex(s === 'FAULT' ? 0x9a2a2a : 0x3a7a8a); c.pts.visible = s === 'RUNNING'; });
+const hot = clamp((ST.hot - 26) / 6, 0, 1); hotG.material.opacity = hot * 0.75; hotL.intensity = hot * 4;
+tech.visible = ST.mot >= 1; pudM.uniforms.lit.value = batt ? 0.35 : 1;
+if (TF) { if (!tech.visible) rkS = 0; else if (!rkSeen) rkS = rkL[0] + rkL[1]; if (!rkSeen) haze = ST.fire >= 2 ? 1 : ST.fire >= 1 ? 0.4 : 0; rkSeen = 1; // already there when the widget opens mid-event · faint self-lit face keeps devices readable
+rkE.intensity = batt ? 2.4 : 0; rkF.intensity = batt ? 0 : 9; TF.faceM.emissive.setRGB(0.14 + hot * 0.5, 0.14 - hot * 0.06, 0.14 - hot * 0.1); hotG.material.opacity = hot * 0.55; }
+}
+applyState = applyStateImpl;
+r.setRenderTarget(RT); r.render(scene, cam); r.setRenderTarget(null); r.render(pScene, pCam);
+let lastR = 0, haze = 0, ledT = 0;
+runLoop((dt, t) => {
+if (t - lastR < 1 / 18) return; const d = Math.min(t - lastR, 0.25); lastR = t;
+post.uniforms.time.value = t; post.uniforms.off.value = ST.on ? 0 : 1;
+if (!ST.on) { BOX.style.display = 'none'; r.setRenderTarget(null); r.render(pScene, pCam); return; }
+const tgt = ST.fire >= 2 ? 1 : ST.fire >= 1 ? 0.4 : 0; haze += (tgt - haze) * Math.min(1, d * 0.6);
+const fl = ST.fire >= 2 && (t * 2.2 % 1) < 0.18 ? 1 : 0;
+strobe.intensity = fl * 30; strobeM.color.setHex(fl ? 0xff3030 : ST.fire >= 2 ? 0x601010 : 0x401010);
+scene.fog.density = haze * (TF ? 0.22 : 0.13); fogC.setHex(ST.batt >= 1 ? (TF ? 0x5a544e : 0x3a3c3e) : 0x9ea3a6); if (fl) fogC.lerp(new T.Color(0xc04040), 0.5);
+scene.background.copy(fogC).multiplyScalar(haze > 0.05 ? 1 : 0.2);
+post.uniforms.red.value = fl;
+for (const s of smoke) { const u = s.userData; s.position.set(u.x + Math.sin(t * 0.13 + u.ph) * 0.8, u.y - haze * 0.9 + Math.sin(t * 0.2 + u.ph) * 0.15, u.z + Math.cos(t * 0.1 + u.ph) * 0.6); s.material.opacity = haze * (ST.fire >= 2 ? 0.55 : 0.3); s.material.color.copy(fogC); s.visible = haze > 0.02; }
+ledT += d; if (ledT > 0.1) { ledT = 0; for (let k = 0; k < 24; k++) { const i = Math.floor(Math.random() * ledPos.length); ledOn[i] = Math.random() < 0.75; leds.setColorAt(i, ledOn[i] ? ledCol[i] : OFF); } leds.instanceColor.needsUpdate = true;
+if (tL) { tL.tl.forEach((x, i) => { const on = x[2] >= 2 ? Math.random() < 0.55 : Math.random() < 0.97; if (on !== !!tL.on[i]) { tL.on[i] = on; tL.lm.setColorAt(i, on ? tL.TC[x[2]] : OFF); } }); tL.lm.instanceColor.needsUpdate = true; } }
+for (const c of cracs) if (c.pts.visible) { for (let k = 0; k < c.n; k++) { const sd = c.seeds[k]; const f = (sd[0] + t * 0.25) % 1; c.pos[k * 3] = sd[1] * 1.3; c.pos[k * 3 + 1] = 0.25 + sd[2] * 0.5 + f * 0.2; c.pos[k * 3 + 2] = 0.5 + f * 2.6; } c.pts.geometry.attributes.position.needsUpdate = true; }
+pudM.uniforms.t.value = t;
+if (tech.visible) { if (TF) walkUp(d); else walk(d); }
+r.setRenderTarget(RT); r.render(scene, cam); r.setRenderTarget(null); r.render(pScene, pCam);
+let shown = false;
+const occ = () => { const hd = new T.Vector3(tech.position.x, 1.2, tech.position.z), dir = hd.clone().sub(cam.position); const dist = dir.length(); ray.set(cam.position, dir.normalize()); ray.far = dist - 0.3; return ray.intersectObjects(blockers, false).length > 0; };
+if (tech.visible && !occ()) { let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9, ok = 0; const px = tech.position.x, pz = tech.position.z;
+for (const [dx, y, dz] of [[-0.3, 0, -0.3], [0.3, 0, 0.3], [-0.3, 1.82, 0.3], [0.3, 1.82, -0.3], [0.3, 0, -0.3], [-0.3, 1.82, -0.3]]) { const s = toScreen(px + dx, y, pz + dz); if (!s) continue; ok++; x0 = Math.min(x0, s[0]); x1 = Math.max(x1, s[0]); y0 = Math.min(y0, s[1]); y1 = Math.max(y1, s[1]); }
+if (ok === 6 && x1 > 4 && x0 < vw - 4 && y1 > 4 && y0 < vh - 4 && x1 - x0 > 6) { shown = true; Object.assign(BOX.style, { left: x0 + 'px', top: y0 + 'px', width: (x1 - x0) + 'px', height: (y1 - y0) + 'px' }); } }
+BOX.style.display = shown ? 'block' : 'none';
+});
+}
+onData(readPts);
+</script></body></html>

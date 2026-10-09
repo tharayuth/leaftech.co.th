@@ -1,170 +1,214 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+/* ---------------------------------------------------------------------------
+   Leaftech · control-room theme (dark only)
+   navy ink + Leaftech green (#22c55e) + cyan secondary
+--------------------------------------------------------------------------- */
+@theme {
+  --font-sans:
+    "Inter Variable", "Noto Sans Thai Variable", ui-sans-serif, system-ui,
+    sans-serif;
+  --font-display:
+    "Poppins", "Noto Sans Thai Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-thai: "Noto Sans Thai Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:
+    ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
 
-@custom-variant dark (&:is(.dark *));
+  --color-ink-950: #060b16;
+  --color-ink-900: #0b1324;
+  --color-ink-850: #0e182d;
+  --color-ink-800: #121e37;
+  --color-ink-700: #1a2a49;
+  --color-line: rgb(255 255 255 / 0.08);
+  --color-line-strong: rgb(255 255 255 / 0.14);
 
-@theme inline {
-  --font-display: 'Poppins', sans-serif;
-  --font-sans: 'Inter', sans-serif;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
+  --color-leaf-300: #86efac;
+  --color-leaf-400: #4ade80;
+  --color-leaf-500: #22c55e;
+  --color-leaf-600: #16a34a;
 
-:root {
-  /* Tech Minimalism with Depth Color Palette */
-  --primary: oklch(0.35 0.15 260);         /* Deep Navy Blue #1a2a4a */
-  --primary-foreground: oklch(0.98 0.001 0);
-  --sidebar-primary: oklch(0.35 0.15 260);
-  --sidebar-primary-foreground: oklch(0.98 0.001 0);
-  --accent: oklch(0.65 0.22 142);          /* Bright Green from Leaftech logo */
-  --accent-foreground: oklch(0.98 0.001 0);
-  --chart-1: oklch(0.65 0.22 142);         /* Bright Green */
-  --chart-2: oklch(0.60 0.20 140);         /* Medium Green */
-  --chart-3: oklch(0.70 0.18 145);         /* Light Green */
-  --chart-4: oklch(0.35 0.15 260);         /* Deep Navy */
-  --chart-5: oklch(0.40 0.15 260);         /* Navy */
-  --radius: 0.65rem;
-  --background: oklch(0.98 0.001 0);       /* Off-white #f8f9fa */
-  --foreground: oklch(0.25 0.02 260);      /* Dark Navy */
-  --card: oklch(1 0 0);                    /* White */
-  --card-foreground: oklch(0.25 0.02 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.25 0.02 260);
-  --secondary: oklch(0.92 0.01 260);       /* Light Gray */
-  --secondary-foreground: oklch(0.35 0.15 260);
-  --muted: oklch(0.90 0.01 0);
-  --muted-foreground: oklch(0.55 0.02 260);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 0);
-  --input: oklch(0.92 0.004 0);
-  --ring: oklch(0.65 0.22 142);             /* Bright Green */
-  --sidebar: oklch(0.98 0.001 0);
-  --sidebar-foreground: oklch(0.25 0.02 260);
-  --sidebar-accent: oklch(0.65 0.22 142);
-  --sidebar-accent-foreground: oklch(0.98 0.001 0);
-  --sidebar-border: oklch(0.92 0.004 0);
-  --sidebar-ring: oklch(0.65 0.22 142);
-}
+  --color-sky-glow: #22d3ee;
 
-.dark {
-  /* Dark theme not used - light theme is primary */
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+  --animate-dash: dash 1.6s linear infinite;
+  --animate-dash-y: dash-y 1.6s linear infinite;
+  --animate-blink: blink 1.1s steps(2, start) infinite;
+
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgb(34 197 94 / 0.55);
+    }
+    50% {
+      box-shadow: 0 0 0 6px rgb(34 197 94 / 0);
+    }
+  }
+  @keyframes dash {
+    to {
+      background-position: 24px 0;
+    }
+  }
+  @keyframes dash-y {
+    to {
+      background-position: 0 24px;
+    }
+  }
+  @keyframes blink {
+    to {
+      visibility: hidden;
+    }
+  }
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-ink-950 font-sans text-slate-300 antialiased;
+    overflow-x: clip;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold;
+  ::selection {
+    background: rgb(34 197 94 / 0.35);
+    color: #fff;
   }
-  h1 {
-    @apply text-5xl md:text-6xl;
-  }
-  h2 {
-    @apply text-4xl md:text-5xl;
-  }
-  h3 {
-    @apply text-2xl md:text-3xl;
-  }
+  h1,
+  h2,
+  h3,
   h4 {
-    @apply text-xl md:text-2xl;
+    @apply font-display text-white;
+    text-wrap: balance;
   }
   p {
-    @apply text-base leading-relaxed;
+    text-wrap: pretty;
   }
-  button:not(:disabled),
-  [role="button"]:not([aria-disabled="true"]),
-  [type="button"]:not(:disabled),
-  [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
-  a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
-    @apply cursor-pointer;
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-leaf-400);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* Thai: looser leading for stacked vowels/tone marks, no negative tracking */
+  html:lang(th) body {
+    @apply leading-[1.75];
+  }
+  html:lang(th) :is(h1, h2, h3, h4) {
+    letter-spacing: 0 !important;
+    line-height: 1.32;
+  }
+  html:lang(th) .lead {
+    line-height: 1.8;
   }
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
-  .container {
+  .container-x {
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
-    padding-right: 1rem;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1rem;
   }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-
   @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
-      padding-right: 1.5rem;
+    .container-x {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-x {
+      padding-inline: 2rem;
     }
   }
 
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem; /* 32px - desktop padding */
-      padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
-    }
+  /* glass-look card: translucent fill + hairline border, no backdrop-filter */
+  .card {
+    background: linear-gradient(
+      180deg,
+      rgb(18 30 55 / 0.72),
+      rgb(11 19 36 / 0.72)
+    );
+    border: 1px solid var(--color-line);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.04),
+      0 20px 50px -30px rgb(0 0 0 / 0.8);
+  }
+
+  .bg-dots {
+    background-image: radial-gradient(
+      rgb(148 163 184 / 0.16) 1px,
+      transparent 1px
+    );
+    background-size: 22px 22px;
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(148 163 184 / 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(148 163 184 / 0.07) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .fade-y {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      #000 18%,
+      #000 82%,
+      transparent
+    );
+  }
+  .fade-b {
+    mask-image: linear-gradient(to bottom, #000 40%, transparent);
+  }
+
+  .text-gradient {
+    background: linear-gradient(92deg, #4ade80 0%, #22d3ee 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-display text-xs font-semibold tracking-[0.18em] text-leaf-400 uppercase;
+  }
+  html:lang(th) .eyebrow {
+    @apply font-thai text-[13px] tracking-normal normal-case;
+  }
+
+  /* animated dashed connector (pipeline) */
+  .dash-line {
+    background-image: linear-gradient(
+      90deg,
+      rgb(74 222 128 / 0.7) 50%,
+      transparent 50%
+    );
+    background-size: 12px 2px;
+    background-repeat: repeat-x;
+  }
+  .dash-line-y {
+    background-image: linear-gradient(
+      180deg,
+      rgb(74 222 128 / 0.55) 50%,
+      transparent 50%
+    );
+    background-size: 2px 12px;
+    background-repeat: repeat-y;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }
