@@ -21,8 +21,8 @@ export const CONTACT = {
   phoneHref: "tel:0990515359",
   email: "tharayuth@leaftech.co.th",
   emailHref: "mailto:tharayuth@leaftech.co.th",
-  facebook: "facebook.com/notiboxaiot",
-  facebookHref: "https://facebook.com/notiboxaiot",
+  facebook: "facebook.com/aiot.leaftech",
+  facebookHref: "https://www.facebook.com/aiot.leaftech",
 } as const;
 
 export const COMPANY = {
