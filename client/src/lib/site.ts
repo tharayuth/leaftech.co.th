@@ -3,6 +3,8 @@
 export const DEMO_URL =
   "https://notibox-dc2.appboox.com/p/DM0Hl71_kmmsPuAUgvclM4JfWKn97m-p3HmFzG-Da8Y/b/f3e42f25-008d-4fbb-a30f-3d2db205ec0f";
 export const DEMO_HOST = "notibox-dc2.appboox.com";
+/** Page that lists every public Notibox demo board (header "Live demo" button). */
+export const DEMOS_URL = "https://notibox-demo.leaftech.co.th";
 
 /** Public (view-only) share links of the hosted Notibox v3 demos, per industry card. Cold storage has no hosted demo yet. */
 export const INDUSTRY_DEMO: Partial<Record<"datacenter" | "building" | "coldstore" | "flood" | "factory", string>> = {

@@ -2,7 +2,7 @@ import { ButtonLink } from "@/components/Button";
 import { LangToggle } from "@/components/LangToggle";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { useLang } from "@/i18n/LangProvider";
-import { DEMO_URL, LOGO_SRC, SECTION_IDS } from "@/lib/site";
+import { DEMOS_URL, LOGO_SRC, SECTION_IDS } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, m } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -80,7 +80,7 @@ export function Nav() {
         <div className="ml-auto flex items-center gap-2 lg:ml-0">
           <LangToggle />
           <ButtonLink
-            href={DEMO_URL}
+            href={DEMOS_URL}
             external
             size="sm"
             className="hidden sm:inline-flex"
@@ -128,7 +128,7 @@ export function Nav() {
               ))}
             </ul>
             <div className="container-x pb-5">
-              <ButtonLink href={DEMO_URL} external className="w-full">
+              <ButtonLink href={DEMOS_URL} external className="w-full">
                 {t.nav.demo}
               </ButtonLink>
             </div>
